@@ -1,0 +1,56 @@
+2024/11/20 12:25:34 [INFO] Packer version: 1.11.2 [go1.21.12 darwin arm64]
+2024/11/20 12:25:34 [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2024/11/20 12:25:34 [INFO] PACKER_CONFIG env var set; attempting to open config file: /Users/jacunningham/.packerconfig
+2024/11/20 12:25:34 [WARN] Config file doesn't exist: /Users/jacunningham/.packerconfig
+2024/11/20 12:25:34 [INFO] Setting cache directory: /Users/jacunningham/.cache/packer
+2024/11/20 12:25:34 [TRACE] listing potential installations for "github.com/hashicorp/docker" that match ">= 1.0.8". plugingetter.ListInstallationsOptions{PluginDirectory:"/Users/jacunningham/.config/packer/plugins", BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"darwin", ARCH:"arm64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.digest)(0x140000cc580)}}, ReleasesOnly:false}}
+2024/11/20 12:25:35 [TRACE] Found the following "github.com/hashicorp/docker" installations: [{/Users/jacunningham/.config/packer/plugins/github.com/hashicorp/docker/packer-plugin-docker_v1.0.11_x5.0_darwin_arm64 v1.0.11 x5.0}]
+2024/11/20 12:25:35 [INFO] found external [-packer-default-plugin-name-] builders from docker plugin
+2024/11/20 12:25:35 [INFO] found external [import push save tag] post-processors from docker plugin
+2024/11/20 12:25:35 [TRACE] listing potential installations for "github.com/hashicorp/amazon" that match "~> 1". plugingetter.ListInstallationsOptions{PluginDirectory:"/Users/jacunningham/.config/packer/plugins", BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"darwin", ARCH:"arm64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.digest)(0x140000cc580)}}, ReleasesOnly:false}}
+2024/11/20 12:25:36 [TRACE] Found the following "github.com/hashicorp/amazon" installations: [{/Users/jacunningham/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.3.3_x5.0_darwin_arm64 v1.3.3 x5.0}]
+2024/11/20 12:25:36 [INFO] found external [chroot ebs ebssurrogate ebsvolume instance] builders from amazon plugin
+2024/11/20 12:25:36 [INFO] found external [import] post-processors from amazon plugin
+2024/11/20 12:25:36 found external [ami parameterstore secretsmanager] datasource from amazon plugin
+2024/11/20 12:25:36 [TRACE] listing potential installations for <nil> that match "". plugingetter.ListInstallationsOptions{PluginDirectory:"/Users/jacunningham/.config/packer/plugins", BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"darwin", ARCH:"arm64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.digest)(0x14000830080)}}, ReleasesOnly:false}}
+2024/11/20 12:25:37 [INFO] found external [chroot ebs ebssurrogate ebsvolume instance] builders from amazon plugin
+2024/11/20 12:25:37 [INFO] found external [import] post-processors from amazon plugin
+2024/11/20 12:25:37 found external [ami parameterstore secretsmanager] datasource from amazon plugin
+2024/11/20 12:25:38 [INFO] found external [-packer-default-plugin-name-] builders from docker plugin
+2024/11/20 12:25:38 [INFO] found external [import push save tag] post-processors from docker plugin
+2024/11/20 12:25:38 [TRACE] validateValue: not active for subnet_id, so skipping
+2024/11/20 12:25:38 [TRACE] validateValue: not active for region_prefix, so skipping
+2024/11/20 12:25:38 [TRACE] validateValue: not active for region, so skipping
+2024/11/20 12:25:38 [TRACE] validateValue: not active for environment, so skipping
+2024/11/20 12:25:38 [INFO] Starting external plugin /Users/jacunningham/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.3.3_x5.0_darwin_arm64 start datasource ami
+2024/11/20 12:25:38 Starting plugin: /Users/jacunningham/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.3.3_x5.0_darwin_arm64 []string{"/Users/jacunningham/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.3.3_x5.0_darwin_arm64", "start", "datasource", "ami"}
+2024/11/20 12:25:38 Waiting for RPC address for: /Users/jacunningham/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.3.3_x5.0_darwin_arm64
+2024/11/20 12:25:38 ui error: Cancelling build after receiving interrupt
+2024/11/20 12:25:38 /Users/jacunningham/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.3.3_x5.0_darwin_arm64: plugin process exited
+2024/11/20 12:25:38 waiting for all plugin processes to complete...
+panic: runtime error: invalid memory address or nil pointer dereference
+[signal SIGSEGV: segmentation violation code=0x2 addr=0x18 pc=0x104b5f59c]
+
+goroutine 1 [running]:
+github.com/hashicorp/packer/hcl2template.decodeHCL2Spec({0x10603b000, 0x14000825a20}, 0x140007e08f8?, {0x0?, 0x0?})
+	github.com/hashicorp/packer/hcl2template/decode.go:20 +0x2c
+github.com/hashicorp/packer/hcl2template.(*PackerConfig).startDatasource(0x1400022c280, {{0x1400046dfd0, 0xa}, {0x1400046dfe6, 0x6}, {{{0x0, 0x0}}, {0x0, 0x0}}, 0x14000609450})
+	github.com/hashicorp/packer/hcl2template/types.datasource.go:112 +0x32c
+github.com/hashicorp/packer/hcl2template.(*PackerConfig).recursivelyEvaluateDatasources(0x1400022c280, {{0x1400046dfd0, 0xa}, {0x1400046dfe6, 0x6}}, 0x140007e0c20, 0x0, 0x0)
+	github.com/hashicorp/packer/hcl2template/types.packer_config.go:437 +0x374
+github.com/hashicorp/packer/hcl2template.(*PackerConfig).evaluateDatasources(0x1400022c280, 0x9c?)
+	github.com/hashicorp/packer/hcl2template/types.packer_config.go:385 +0x228
+github.com/hashicorp/packer/hcl2template.(*PackerConfig).Initialize(0x1400022c280, {0x20?})
+	github.com/hashicorp/packer/hcl2template/parser.go:300 +0x150
+github.com/hashicorp/packer/command.(*BuildCommand).RunContext(0x14000216780, {0x10603ad28?, 0x1400080de50}, 0x14000159900)
+	github.com/hashicorp/packer/command/build.go:105 +0xbc
+github.com/hashicorp/packer/command.(*BuildCommand).Run(0x14000216780, {0x1400003a0c0, 0x3, 0x3})
+	github.com/hashicorp/packer/command/build.go:45 +0xac
+github.com/mitchellh/cli.(*CLI).Run(0x1400022c000)
+	github.com/mitchellh/cli@v1.1.5/cli.go:262 +0x4a8
+main.wrappedMain()
+	github.com/hashicorp/packer/main.go:274 +0xc54
+main.realMain()
+	github.com/hashicorp/packer/main.go:51 +0xb8
+main.main()
+	github.com/hashicorp/packer/main.go:37 +0x1c
